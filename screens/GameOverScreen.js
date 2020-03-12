@@ -8,7 +8,8 @@ const GameOverScreen = props => {
       <Text>The Game is Over!</Text>
       <View style={styles.imageContainer}>
         <Image 
-          source={require('../assets/original.png')} 
+          // source={require('../assets/original.png')} 
+          source={{ uri: 'https://images.financialexpress.com/2020/03/mount-everest.jpg' }}
           style={styles.image}
           resizeMode="cover"
         />
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
+    // always use when use internet image
     width: '100%',
     height: '100%'
   }
