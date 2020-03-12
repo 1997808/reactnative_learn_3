@@ -7,6 +7,9 @@ import Card from '../components/Card'
 import MainButton from '../components/MainButton'
 import DefaultStyles from '../constants/default-styles'
 
+import BodyText from '../components/BodyText'
+import TitleText from '../components/TitleText'
+
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -16,6 +19,15 @@ const generateRandomBetween = (min, max, exclude) => {
   } else {
     return rndNum
   }
+}
+
+const renderListItem = (value, numOfRound) => {
+  return (
+    <View key={value} style={styles.listItem}>
+      <BodyText>#{numOfRound}</BodyText>
+      <BodyText>{value}</BodyText>
+    </View>
+  )
 }
 
 const GameScreen = props => {
@@ -42,10 +54,9 @@ const GameScreen = props => {
         Alert.alert('Don\'t lie!', 'Wrong bro', [
           {text: 'Sorry!', style: 'cancel'}
         ])
-        return
+      return
     }
     if (direction === 'lower') {
-      console.log('too high')
       currentHigh.current = currentGuess
     } else {
       currentLow.current = currentGuess + 1
@@ -72,13 +83,11 @@ const GameScreen = props => {
           <Ionicons name="md-add" size={24} color="white"/>
         </MainButton>
       </Card>
-      <ScrollView>
-        {pastGuesses.map(guess => (
-          <View key={guess}>
-            <Text>{guess}</Text>
-          </View>
-        ))}
-      </ScrollView>
+      <View style={styles.list}>
+        <ScrollView>
+          {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
+        </ScrollView>
+      </View>
     </View>
   )
 }
@@ -89,12 +98,28 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center'
   },
+
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 20,
     width: 300,
     maxWidth: '90%'
+  },
+
+  list: {
+    flex: 1,
+    width: '80%',
+  },
+
+  listItem: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 15,
+    marginVertical: 10,
+    backgroundColor: 'white',
+    flexDirection: "row",
+    justifyContent: 'space-around'
   }
 })
 
