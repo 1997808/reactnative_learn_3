@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, TextInput, Button, TouchableWithoutFeedback, Ke
 import Card from '../components/Card'
 import Input from '../components/Input'
 import Colors from '../constants/Colors'
+import BodyText from '../components/BodyText'
 import NumberContainer from '../components/NumberContainer'
 
 const StartGameScreen = props =>  {
@@ -52,7 +53,7 @@ const StartGameScreen = props =>  {
       <View style={styles.screen}>
         <Text style={styles.title}>The Game Screen!</Text>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <BodyText>Select a Number</BodyText>
           <Input 
             style={styles.input} 
             blurOnSubmit 
@@ -87,7 +88,8 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 20,
-    marginVertical: 10
+    marginVertical: 10,
+    fontFamily: 'open-sans-bold'
   },
 
   inputContainer: {
