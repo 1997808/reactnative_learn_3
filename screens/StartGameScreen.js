@@ -8,7 +8,7 @@ import BodyText from '../components/BodyText'
 import NumberContainer from '../components/NumberContainer'
 import MainButton from '../components/MainButton'
 
-const StartGameScreen = props =>  {
+const StartGameScreen = props => {
 
   const [enteredValue, setEnteredValue] = useState('')
   const [confirmed, setConfirmed] = useState(false)
@@ -38,19 +38,19 @@ const StartGameScreen = props =>  {
     const chosenNumber = parseInt(enteredValue)
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
       Alert.alert(
-        'Invalid number!', 
-        'Number has to be a number between 1 and 99', 
-        [{text: 'Okay', style: 'destructive', onPress: resetInputHandler }])
+        'Invalid number!',
+        'Number has to be a number between 1 and 99',
+        [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler }])
       return
     }
     setConfirmed(true)
     setEnteredValue('')
-    setSelectedNumber(parseInt(enteredValue)) 
+    setSelectedNumber(parseInt(enteredValue))
   }
 
   let confirmedOutput
   if (confirmed) {
-    confirmedOutput = 
+    confirmedOutput =
       <Card style={styles.summaryContainer}>
         <Text>Chosen Number:</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
@@ -70,22 +70,22 @@ const StartGameScreen = props =>  {
             <Text style={styles.title}>The Game Screen!</Text>
             <Card style={styles.inputContainer}>
               <BodyText>Select a Number</BodyText>
-              <Input 
-                style={styles.input} 
-                blurOnSubmit 
-                autoCapitalize="none" 
-                autoCorrect={false} 
-                keyboardType="number-pad" 
+              <Input
+                style={styles.input}
+                blurOnSubmit
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="number-pad"
                 maxLength={2}
                 onChangeText={numberInputHandler}
                 value={enteredValue}
               />
               <View style={styles.buttonContainer}>
-                <View style={{width: buttonWidth}} >
-                  <Button title="Reset" onPress={resetInputHandler} color={Colors.accent}/>
+                <View style={{ width: buttonWidth }} >
+                  <Button title="Reset" onPress={resetInputHandler} color={Colors.accent} />
                 </View>
-                <View style={{width: buttonWidth}} >
-                  <Button title="Confirm" onPress={confirmedInputHandler} color={Colors.primary}/>
+                <View style={{ width: buttonWidth }} >
+                  <Button title="Confirm" onPress={confirmedInputHandler} color={Colors.primary} />
                 </View>
               </View>
             </Card>
