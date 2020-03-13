@@ -13,7 +13,7 @@ const GameOverScreen = props => {
       <View style={styles.screen}>
         <TitleText>The Game is Over!</TitleText>
         <View style={styles.imageContainer}>
-          <Image 
+          <Image
             // source={require('../assets/original.png')} 
             source={{ uri: 'https://images.financialexpress.com/2020/03/mount-everest.jpg' }}
             style={styles.image}
@@ -25,7 +25,7 @@ const GameOverScreen = props => {
             Your phone needed <Text style={styles.highlight}>{props.roundsNumber}</Text> rounds to guess the numbeer <Text style={styles.highlight}>{props.userNumber}</Text>
           </BodyText>
         </View>
-        
+
         <MainButton onPress={props.onRestart} >NEW GAME</MainButton>
       </View>
     </ScrollView>
