@@ -80,9 +80,9 @@ const GameScreen = props => {
     setPastGuesses(curPastGuesses => [nextNumber.toString(), ...curPastGuesses])
   }
  
-  let listContainerStyle = style.listContainer
+  let listContainerStyle = styles.listContainer
   if (Dimensions.get('window').width < 350) {
-    listContainerStyle = style.listContainerBig
+    listContainerStyle = styles.listContainerBig
   }
 
   return (
